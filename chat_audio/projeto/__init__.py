@@ -1,5 +1,6 @@
 from flask import Flask, render_template, url_for
 from flask_sqlalchemy import SQLAlchemy
+from projeto import app
 
 app = Flask(__name__)
 app.coonfig['SECRET_KEY'] = ''
