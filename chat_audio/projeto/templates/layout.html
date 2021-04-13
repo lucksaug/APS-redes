@@ -11,9 +11,9 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
 
     {% if title %}
-        <title>Flask Blog - {{ title }}</title>
+        <title>Chat Audio - {{ title }}</title>
     {% else %}
-        <title>Flask Blog</title>
+        <title>Chat Audio</title>
     {% endif %}
 </head>
 <body>
@@ -26,7 +26,6 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarToggle">
             <div class="navbar-nav mr-auto">
-              
               <a class="nav-item nav-link" href="{{ url_for('sobre') }}">sobre</a>
             </div>
             <!-- Navbar Right Side -->

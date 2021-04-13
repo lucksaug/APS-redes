@@ -7,7 +7,7 @@ from projeto.forms import FormularioLogin, FormularioCadastro
 @app.route('/')
 @app.route('/chat')
 def chat():
-    return render_template('chat.html', title='Chat')
+    return render_template('chat.html')
 
 # Rota para tela "Login"
 @app.route('/login', methods=['GET', 'POST'])
