@@ -1,7 +1,7 @@
-from flask import render_template, url_for, flash, redirect
+from flask import render_template, url_for, flash, redirect, request
 from projeto import app
 from projeto.forms import FormularioLogin, FormularioCadastro
-
+from flask_login import login_user, current_user, logout_user, login_required
 
 # Rota para telas: "/" e "chat"
 @app.route('/')
@@ -34,4 +34,3 @@ def cadastro():
 @app.route('/sobre')
 def sobre():
     return render_template('sobre.html', title='Sobre')
-
