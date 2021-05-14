@@ -1,7 +1,7 @@
 from flask import render_template, url_for, flash, redirect, request
-from projeto import app
+from projeto import app, bcrypt
 from projeto.forms import FormularioLogin, FormularioCadastro
-from projeto.models import *
+from projeto.models import inserir_usuario
 from flask_login import login_user, current_user, logout_user, login_required
 
 # Rota para telas: "/" e "chat"
@@ -19,7 +19,7 @@ def login():
            flash('Você está conectado!')
            return redirect(url_for('chat'))
         else:
-            flash('Login Unseccessful. Por favor confira o email e a senha')
+            flash('Algo deu errado. Por favor confira o email e a senha')
     return render_template('login.html', title='Login', form=form)
 
 # Rota para tela "Cadastro"
@@ -27,7 +27,9 @@ def login():
 def cadastro():
     form = FormularioCadastro()
     if form.validate_on_submit():
-        flash(f'Conta criada com sucesso!',)
+        senha_seg = bcrypt.generate_password_hash(form.senha.data).decode('utf-8')
+        inserir_usuario(email=form.email.data, senha=senha_seg)
+        flash('Sua conta foi criada com successo! Agora você pode entrar')
         return redirect(url_for('login'))
     return render_template('cadastro.html', title='Cadastro', form=form)
 

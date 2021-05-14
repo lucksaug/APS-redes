@@ -1,18 +1,21 @@
-from projeto import db, login_manager
-from projeto import db
+from projeto import db#, login_manager
 
 
-@login_manager.user_loader
-def load_user(id_usuario):
-    return User.query.get(int(user_id))
+#@login_manager.user_loader
+#def load_user(id_usuario):
+#    return User.query.get(int(user_id))
 
-def funcao():
-    cur =db.connection.cursor()
-    cur.execute('''
-        INSERT INTO cadastro ('email', 'senha') VALUES ('lucas@gmail.com', '123'), ('gabriel@gmail.com', '123'),
-    ('gustavo@gmail.com', '123');
+def inserir_usuario(email,senha):
+    cur = db.connection.cursor()
+    cur.execute("INSERT INTO usuario(email,senha) VALUES (%s,%s)",(email,senha))
+    db.connection.commit()
+    cur.close()
 
-    INSERT INTO gravando ('id_audio', 'gravador') VALUES (1, 'teste de gravação'), (2, 'teste de gravação 2'),
-    (3, 'teste de gravação 3');
-        
-        ''')
+#def inserir_conversa(gravacao):
+#   cur = db.connector.cursor()
+#    cur.execute("INSERT INTO usuario(email,senha) VALUES (%s,%s)",(email,senha))
+#    db.connection.commit()
+#    cur.close()
+#   INSERT INTO gravando ('id_audio', 'gravador') VALUES (1, 'teste de gravação'), (2, 'teste de gravação 2'),
+#   (3, 'teste de gravação 3');  
+# ''')
