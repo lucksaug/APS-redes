@@ -40,13 +40,16 @@
                 {{ form.submit(class="btn btn-outline-success") }}
             </div>
             <small class="texted-muted ml-2">
-                <a href="#">Esqueceu a senha?</a>
+                <a href="#" class="link-success">Esqueceu a senha?</a><br/>
+
+                <a href="#" class="link-success">Success link</a><br/>
+
             </small>
         </form>
     </div>
     <div class="border-top pt-3">
         <small class="text-muted">
-            Ainda não cadastrado? <a class="ml-2" href="{{ url_for('cadastro') }}">Cadastre agora</a>
+            Ainda não cadastrado? <a class="link-success ml-2" href="{{ url_for('cadastro') }}">Cadastre agora</a>
         </small>
     </div>
 {% endblock content %}
