@@ -5,7 +5,7 @@ from flask_login import LoginManager
 
 # Instância dos objetos
 app = Flask(__name__)
-db = SQLAlchemy(app)
+db = MySQL(app)
 bcrypt = Bcrypt(app)
 
 #Configurações para os objetos
@@ -14,7 +14,7 @@ app.config['MYSQL_HOST']= 'localhost'
 app.config['MYSQL_USER']= 'root'
 app.config['MYSQL_PASSWORD']= ''
 app.config['MYSQL_DB']= ''
-app.config['MYSQL_CURSOR']= 'Disct'
+app.config['MYSQL_CURSOR']= 'DictCursor'
 
 #login_manager = LoginManager(app)
 #login_manager.login_view = 'login'
